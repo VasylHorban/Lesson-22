@@ -1,0 +1,17 @@
+form{
+    margin: 50px auto;
+    width: 300px;
+    text-align: center;
+    background-color: lightblue;
+    height: 300px;
+    border-radius: 3%;
+    color:#fff;
+}
+label{
+    display: block;
+    padding: 20px 0 10px 0;
+}
+button{
+    display: block;
+    margin: 20px auto;
+}
