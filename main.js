@@ -7,8 +7,10 @@ $('#submit').click(function(){
     user.setName($('#user-name').val());
     user.setDate($('#date-of-birth').val());
     user.setAge($('#user-age').val());
-    console.log(user.date.length)
     if(!user.isCorrect()){
+        $('#user-name').val('');
+        $('#date-of-birth').val('');
+        $('#user-age').val('');
         $('form').effect('shake',{},3000);
         return false;
     }
@@ -22,15 +24,22 @@ class User{
         this.name = name.trim().toLowerCase();
     }
     setAge(age){
-        this.age = +age.trim();
+        this.age = +age;
     }
     setDate(date){
         this.date = date.trim();
     }
     isCorrect(){
-        if(this.name != ''&& this.age != ''&& !isNaN(this.age) && this.date != '' && this.date && (this.age^0) === 0){
+        if(this.name != ''&& this.age != ''&& !isNaN(this.age) && this.date != ''  && (this.age^0) === this.age && this.checkDate(this.date)){
             return true
         }
-        return false;
+        return false       
+    }
+    checkDate(date){
+        let arr = date.split('-').map(elem => elem^0 === elem ? elem : null);
+        if(arr.length == 3 && arr[0].length == 2 && arr[1].length == 2 && arr[2].length == 4){
+            return true
+        }
+        return false
     }
 }
