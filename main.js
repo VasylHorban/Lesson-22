@@ -17,7 +17,6 @@ $('#submit').click(function(){
 
     $('form').hide('blind',{},3000);
 });
-
 class User{
     constructor(){}
     setName(name){
